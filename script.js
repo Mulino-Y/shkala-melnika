@@ -162,17 +162,3 @@ sortButtons.forEach(button => {
 				sidebar.classList.remove('active');
 		});
 });
-
-//Сортировка фабрик
-$(document).ready(function() {
-  $('.filter-item').click(function() {
-    $('.filter-item').removeClass('active');
-    $(this).addClass('active');
-
-    const factory = $(this).data('factory');
-
-    $('.candy-item').hide();
-
-    $('.candy-item[data-factory="' + factory + '"]').show();
-  });
-});
