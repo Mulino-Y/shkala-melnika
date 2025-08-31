@@ -41,7 +41,7 @@ productItems.forEach(item => {
 						
 				
 				const sweetness = parseInt(item.dataset.sweetness);
-				const popularity = parseInt(item.dataset.popularity);
+				const rarity = parseInt(item.dataset.rarity);
 				const nutty = parseInt(item.dataset.nutty);
 				const naturalness = parseInt(item.dataset.naturalness);
 				const bitterness = parseInt(item.dataset.bitterness);
@@ -82,8 +82,28 @@ productItems.forEach(item => {
 				if (!isNaN(richness)) {
 						modalCharacteristics.innerHTML += `<li><strong>Насыщенность:</strong> ${generateStars(richness)}</li>`;
 				}
-				if (!isNaN(popularity)) {
-						modalCharacteristics.innerHTML += `<li><strong>Популярность:</strong> ${generateStars(popularity)}</li>`;
+				if (!isNaN(rarity)) {
+					let rarityText;
+					switch (rarity) {
+						case 1:
+							rarityText = 'Обычная';
+							break;
+						case 2:
+							rarityText = 'Редкая';
+							break;
+						case 3:
+							rarityText = 'Супер Редкая';
+							break;
+						case 4:
+							rarityText = 'Епическая';
+							break;
+						case 5:
+							rarityText = 'Легендарная';
+							break;
+						default:
+							rarityText = 'Неизвестно';
+					}
+					modalCharacteristics.innerHTML += `<li><strong>Редкость:</strong> ${rarityText}</li>`;
 				}
 				if (highlight) {
 						modalCharacteristics.innerHTML += `<li><strong>Изюминка:</strong> ${highlight}</li>`;
